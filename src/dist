@@ -1,0 +1,16 @@
+#!/bin/bash
+
+{
+mv chopcoind ..
+mv obj ..
+mv obj-test ..
+}; {
+mkdir chopcoin
+rsync -r --verbose --exclude 'chopcoin' ./* chopcoin
+tar czvf chopcoin.tar.gz chopcoin
+rm -rf chopcoin
+}; {
+mv ../chopcoind .
+mv ../obj .
+mv ../obj-test .
+};

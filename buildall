@@ -1,0 +1,11 @@
+#!/bin/bash
+
+rm Makefile
+qmake
+rm chopcoin-qt
+make
+cd src
+rm chopcoind
+make -f makefile.unix
+cd ..
+
