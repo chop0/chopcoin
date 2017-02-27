@@ -1,2 +1,0 @@
-# chopcoin
-My chopcoin cryptocurrency
