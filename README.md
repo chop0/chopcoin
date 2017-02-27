@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Chopcoin integration/staging tree
 ================================
 
@@ -71,3 +72,7 @@ Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
     make -f Makefile.test
     ./chopcoin-qt_test
 
+=======
+# chopcoin
+My chopcoin cryptocurrency
+>>>>>>> ee8218e790371bf85ca2e438893a67d8487d437b
