@@ -61,3 +61,8 @@ build
 *.exe
 *.out
 *.app
+
+# Archives
+*.tar.gz
+*.zip
+*.bz2

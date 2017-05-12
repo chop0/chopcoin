@@ -12,13 +12,12 @@ packages:
 - "nsis"
 - "faketime"
 reference_datetime: "2011-01-30 00:00:00"
-remotes:
-- "url": "https://github.com/chopcoin-project/chopcoin.git"
-  "dir": "chopcoin"
+remotes: []
 files:
 - "qt-win32-4.8.5-gitian-r7.zip"
 - "boost-win32-1.55.0-gitian-r6.zip"
 - "bitcoin08-deps-win32-gitian-r12.zip"
+- "chopcoin.tar.gz"
 script: |
   #
   STAGING=$HOME/staging
@@ -29,14 +28,16 @@ script: |
   unzip ../build/qt-win32-4.8.5-gitian-r7.zip
   unzip ../build/boost-win32-1.55.0-gitian-r6.zip
   unzip ../build/bitcoin08-deps-win32-gitian-r12.zip
+  tar xvf ../build/chopcoin.tar.gz
   cd $HOME/build/
   #
-  cd chopcoin
+  pwd
+  find ..
+  cd ../staging/chopcoin
   export PATH=$STAGING/host/bin:$PATH
   mkdir -p $OUTDIR/src
-  git archive HEAD | tar -x -C $OUTDIR/src
-  cp $OUTDIR/src/doc/README_windows.txt $OUTDIR/readme.txt
-  cp $OUTDIR/src/COPYING $OUTDIR/COPYING.txt
+  #cp $OUTDIR/src/doc/README_windows.txt $OUTDIR/readme.txt
+  #cp $OUTDIR/src/COPYING $OUTDIR/COPYING.txt
   export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
   export FAKETIME=$REFERENCE_DATETIME
   export TZ=UTC
@@ -55,11 +56,11 @@ script: |
   mkdir $OUTDIR/daemon
   cp chopcoind.exe $OUTDIR/daemon
   cd ..
-  mkdir nsis
-  git archive HEAD | tar -x -C nsis
-  cd nsis/src
+  find
   mkdir ../release
-  cp ../../release/* ../release/
-  cp ../../src/*.exe .
-  makensis ../share/setup.nsi
-  cp ../share/chopcoin-*-win32-setup.exe $OUTDIR/
+  cp ./release/* ../release/
+  cp src/*.exe .
+  makensis share/setup.nsi
+  cp share/chopcoin-*-win32-setup.exe $OUTDIR/
+  
+
