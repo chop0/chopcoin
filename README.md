@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Chopcoin integration/staging tree
 ================================
 
