@@ -9,7 +9,7 @@ Copyright (c) 2011-2014 Chopcoin Developers
 What is Chopcoin?
 ----------------
 
-Chopcoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
+Chopcoin is a lite version of Bitcoin using scrypt, X11, and SHA512 as alternate proof-of-work algorithms.
  - 2.5 minute block targets
  - subsidy halves in 840k blocks (~9 months)
  - ~84 million total coins
